@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: My first serverless application.
+
+Resources:
+
+  Products:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.mozcalti.training.aws.serverless.RequestHandler::handleRequest
+      Runtime: java8
+      Events:
+        GetWidget:
+          Type: Api
+          Properties:
+            Path: /products
+            Method: post
